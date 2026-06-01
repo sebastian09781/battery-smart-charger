@@ -168,7 +168,57 @@ chmod +x ~/.termux/widget/*
 | `apagar_cargador.sh` | Apaga el enchufe |
 | `estado_cargador.sh` | Muestra estado actual |
 
-## 8. Rango de batería recomendado
+## 8. Nextcloud (servidor 24/7)
+
+Este proyecto también incluye la configuración completa para ejecutar **Nextcloud** en Termux como servidor 24/7.
+
+### 8.1 Copiar scripts
+
+```bash
+cp -r nextcloud/scripts/* ~/scripts/
+chmod +x ~/scripts/*.sh
+```
+
+### 8.2 Configurar variables de entorno
+
+```bash
+cp nextcloud/nc_vars.env.example ~/nc_vars.env
+nano ~/nc_vars.env  # Completa con tus datos
+```
+
+### 8.3 Iniciar Nextcloud
+
+```bash
+bash ~/scripts/start_nextcloud.sh
+```
+
+### 8.4 Auto-arranque al boot
+
+```bash
+cp nextcloud/boot/start_nextcloud.sh ~/.termux/boot/
+chmod +x ~/.termux/boot/*.sh
+```
+
+### 8.5 Widgets
+
+```bash
+cp nextcloud/shortcuts/* ~/.shortcuts/
+chmod +x ~/.shortcuts/*
+```
+
+### 8.6 Servicios incluidos
+
+| Script | Función |
+|---|---|
+| `start_nextcloud.sh` | Inicia DB + Redis + PHP + tunneling |
+| `stop_nextcloud.sh` | Detiene todos los servicios |
+| `status_nextcloud.sh` | Estado de todos los servicios |
+| `backup_nextcloud.sh` | Respaldo de datos y configuración |
+| `start_tunnel.sh` | Túnel Cloudflare para acceso público |
+
+Ver `nextcloud/README.md` para la documentación completa.
+
+## 9. Rango de batería recomendado
 
 Para máxima vida útil de la batería Li-ion en un servidor 24/7:
 
@@ -199,9 +249,16 @@ proyecto-tuya/
 │   ├── encender_cargador.sh
 │   ├── apagar_cargador.sh
 │   └── estado_cargador.sh
-└── shortcuts/
-    ├── encender_cargador.sh
-    └── apagar_cargador.sh
+├── shortcuts/
+│   ├── encender_cargador.sh
+│   └── apagar_cargador.sh
+└── nextcloud/
+    ├── README.md
+    ├── nc_vars.env.example
+    ├── config.php.example
+    ├── scripts/          # Gestión Nextcloud
+    ├── shortcuts/        # Widgets Nextcloud
+    └── boot/             # Auto-arranque
 ```
 
 ## Licencia
