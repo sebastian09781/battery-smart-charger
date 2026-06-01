@@ -1,5 +1,7 @@
 # Control Automático de Cargador con Tuya + Termux + Tasker
 
+![Diagrama](screenshots/diagram.svg)
+
 Proyecto para controlar un enchufe inteligente Tuya automáticamente según el nivel de batería de tu Android, ideal para mantener un servidor 24/7 sin degradar la batería.
 
 ## Características
@@ -8,8 +10,8 @@ Proyecto para controlar un enchufe inteligente Tuya automáticamente según el n
 - ✅ Apaga el cargador cuando la batería llega al **80%**
 - ✅ Control local por WiFi (sin depender de la nube)
 - ✅ Widgets para control manual desde la pantalla de inicio
-- ✅ Automatización vía Tasker o cron interna
-- ✅ Compatible con servidores Android 24/7 (Nextcloud, Home Assistant, etc.)
+- ✅ Automatización vía Tasker
+- ✅ Sin dependencia de la nube, sin Home Assistant
 
 ## Índice
 
@@ -168,57 +170,7 @@ chmod +x ~/.termux/widget/*
 | `apagar_cargador.sh` | Apaga el enchufe |
 | `estado_cargador.sh` | Muestra estado actual |
 
-## 8. Nextcloud (servidor 24/7)
-
-Este proyecto también incluye la configuración completa para ejecutar **Nextcloud** en Termux como servidor 24/7.
-
-### 8.1 Copiar scripts
-
-```bash
-cp -r nextcloud/scripts/* ~/scripts/
-chmod +x ~/scripts/*.sh
-```
-
-### 8.2 Configurar variables de entorno
-
-```bash
-cp nextcloud/nc_vars.env.example ~/nc_vars.env
-nano ~/nc_vars.env  # Completa con tus datos
-```
-
-### 8.3 Iniciar Nextcloud
-
-```bash
-bash ~/scripts/start_nextcloud.sh
-```
-
-### 8.4 Auto-arranque al boot
-
-```bash
-cp nextcloud/boot/start_nextcloud.sh ~/.termux/boot/
-chmod +x ~/.termux/boot/*.sh
-```
-
-### 8.5 Widgets
-
-```bash
-cp nextcloud/shortcuts/* ~/.shortcuts/
-chmod +x ~/.shortcuts/*
-```
-
-### 8.6 Servicios incluidos
-
-| Script | Función |
-|---|---|
-| `start_nextcloud.sh` | Inicia DB + Redis + PHP + tunneling |
-| `stop_nextcloud.sh` | Detiene todos los servicios |
-| `status_nextcloud.sh` | Estado de todos los servicios |
-| `backup_nextcloud.sh` | Respaldo de datos y configuración |
-| `start_tunnel.sh` | Túnel Cloudflare para acceso público |
-
-Ver `nextcloud/README.md` para la documentación completa.
-
-## 9. Rango de batería recomendado
+## 8. Rango de batería recomendado
 
 Para máxima vida útil de la batería Li-ion en un servidor 24/7:
 
@@ -245,20 +197,15 @@ proyecto-tuya/
 │   ├── plug_off.py         # Apagar enchufe
 │   ├── scan.py             # Escanear dispositivos en red
 │   └── requirements.txt    # Dependencias Python
+├── screenshots/
+│   └── diagram.svg      # Diagrama de flujo
 ├── widgets/
 │   ├── encender_cargador.sh
 │   ├── apagar_cargador.sh
 │   └── estado_cargador.sh
-├── shortcuts/
-│   ├── encender_cargador.sh
-│   └── apagar_cargador.sh
-└── nextcloud/
-    ├── README.md
-    ├── nc_vars.env.example
-    ├── config.php.example
-    ├── scripts/          # Gestión Nextcloud
-    ├── shortcuts/        # Widgets Nextcloud
-    └── boot/             # Auto-arranque
+└── shortcuts/
+    ├── encender_cargador.sh
+    └── apagar_cargador.sh
 ```
 
 ## Licencia

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320">
+  <style>
+    .box { fill: #1a1a2e; stroke: #e94560; stroke-width: 2; rx: 10; ry: 10; }
+    .box2 { fill: #16213e; stroke: #0f3460; stroke-width: 2; rx: 10; ry: 10; }
+    .text { fill: #eee; font-family: monospace; font-size: 14px; text-anchor: middle; }
+    .text-sm { fill: #aaa; font-family: monospace; font-size: 11px; text-anchor: middle; }
+    .arrow { stroke: #e94560; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .label { fill: #e94560; font-family: monospace; font-size: 12px; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e94560"/>
+    </marker>
+  </defs>
+
+  <!-- Phone/Battery -->
+  <rect x="20" y="60" width="120" height="200" rx="20" fill="#222" stroke="#555" stroke-width="2"/>
+  <rect x="60" y="10" width="40" height="30" rx="5" fill="#333" stroke="#555" stroke-width="1"/>
+  <rect x="35" y="80" width="90" height="50" rx="8" fill="#0f3460"/>
+  <text x="80" y="100" class="text" fill="#eee">Batería</text>
+  <text x="80" y="118" class="text" fill="#4ecca3" id="pct">30% / 80%</text>
+  <text x="80" y="260" class="text-sm">Android</text>
+
+  <!-- Tasker -->
+  <rect x="200" y="60" width="130" height="100" class="box"/>
+  <text x="265" y="105" class="text">Tasker</text>
+  <text x="265" y="122" class="text-sm" fill="#e94560">Profile: Battery Level</text>
+  <text x="265" y="138" class="text-sm" fill="#e94560">→ Termux:Tasker</text>
+
+  <!-- Termux -->
+  <rect x="390" y="60" width="130" height="100" class="box"/>
+  <text x="455" y="100" class="text">Termux</text>
+  <text x="455" y="120" class="text-sm" fill="#aaa">plug_on.py</text>
+  <text x="455" y="136" class="text-sm" fill="#aaa">plug_off.py</text>
+  <text x="455" y="152" class="text-sm" fill="#aaa">tinytuya</text>
+
+  <!-- Tuya Plug -->
+  <rect x="580" y="60" width="120" height="100" class="box2" stroke="#4ecca3"/>
+  <text x="640" y="105" class="text">Enchufe</text>
+  <text x="640" y="125" class="text" fill="#4ecca3">Tuya</text>
+  <text x="640" y="145" class="text-sm" fill="#aaa">WiFi / Local</text>
+
+  <!-- Cargador -->
+  <rect x="760" y="60" width="120" height="100" class="box2" stroke="#ffd700"/>
+  <text x="820" y="105" class="text">Cargador</text>
+  <text x="820" y="125" class="text" fill="#ffd700">ON / OFF</text>
+
+  <!-- Arrows -->
+  <line x1="140" y1="110" x2="200" y2="110" class="arrow"/>
+  <line x1="330" y1="110" x2="390" y2="110" class="arrow"/>
+  <line x1="520" y1="110" x2="580" y2="110" class="arrow"/>
+  <line x1="700" y1="110" x2="760" y2="110" class="arrow"/>
+
+  <!-- Labels -->
+  <text x="170" y="102" class="label">dispara</text>
+  <text x="360" y="102" class="label">ejecuta</text>
+  <text x="550" y="102" class="label">control local</text>
+  <text x="730" y="102" class="label">alimenta</text>
+
+  <!-- Cycle indicator -->
+  <ellipse cx="455" cy="200" rx="160" ry="30" fill="none" stroke="#4ecca3" stroke-dasharray="5,5" stroke-width="1"/>
+  <text x="285" y="208" class="text-sm" fill="#4ecca3">Battery ↓30% → ENCIENDE</text>
+  <text x="610" y="208" class="text-sm" fill="#4ecca3">Battery ↑80% → APAGA</text>
+</svg>
