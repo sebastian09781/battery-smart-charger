@@ -1,0 +1,7 @@
+# Configuración del enchufe Tuya
+# Completa con los datos de tu dispositivo
+
+DEVICE_ID = "27051506ecfabca45f0e"  # ID de tu enchufe
+IP_ADDRESS = "192.168.10.28"         # IP local del enchufe
+LOCAL_KEY = ".|>Wos7M@#mL.X[N"       # Local Key (de Tuya IoT)
+VERSION = 3.3                         # Versión del protocolo (3.1 - 3.4)
